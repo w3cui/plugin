@@ -1,0 +1,80 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title></title>
+<style>
+  body{padding: 50px 100px;}
+</style>
+</head>
+<body>
+<!-- Swiper -->
+<div class="swiper-container" ui-swiper data-config="{zoom: true,pagination: '.swiper-pagination',nextButton: '.swiper-button-next',prevButton: '.swiper-button-prev'}" >
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="swiper-zoom-container">
+                <img src="http://www.swiper.com.cn/demo/img/largeNature1.jpg">
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="swiper-zoom-container">
+                <img src="http://www.swiper.com.cn/demo/img/largeNature2.jpg">
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="swiper-zoom-container">
+                <img src="http://www.swiper.com.cn/demo/img/largeNature3.jpg">
+            </div>
+        </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-pagination-white"></div>
+    <!-- Add Navigation -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
+<hr>
+<h3>引用方式</h3>
+  <pre>
+  	SWIPER官网地址：<a href="http://www.swiper.com.cn/demo/index.html" target="_block">http://www.swiper.com.cn/demo/index.html</a>
+
+  	指令名称 : ui-swiper 
+  	swiper参数 : data-config="{zoom: true,pagination: '.swiper-pagination',nextButton: '.swiper-button-next',prevButton: '.swiper-button-prev'}"
+  	回调实体 : complete => function($object){};  $object =>  swiper对象
+
+  	指令源码源码 ：
+
+	/**
+	 * 滑动滚动
+	 * @complete => "初始完毕后回调"
+	 * @config =>  "swiper选项配置" 
+	 */
+	lwjui.directive('ui-swiper', function() {
+		return {
+			uses: ["plugin/swiper/js/swiper.js"],
+			addcss: ['plugin/swiper/swiper.css'],
+			scope: {
+				config: '=config',
+				callback:'~complete'
+			},
+			link: function(el) {
+				var scope = el.scope,
+					service = el.fn.swiper;
+				// 扩展回调方法
+				var service = service.init(el.element, scope, el.fn.cache.dir + "plugin/swiper/");
+				if(scope.callback){
+					scope.callback(service)
+				}				
+			}
+		};
+	});
+  </pre>
+
+</body>
+</html>
+<script type="text/javascript"  src="../../bower_components/jquery/jquery.min.js"></script>
+<script src="../../release/lwj.js"></script>
+<script>
+lwjui.uses(['swiper']);
+</script>

@@ -1,0 +1,17 @@
+{
+	"cwd":"./",
+	"directory":"bower_components",
+	"resolvers":[
+		"bower-nexus3-resolver"
+	],
+	"registry":{
+		"search":[
+			"http://182.92.221.25:20000/repository/bower-public/"
+		],
+		"register":"http://admin:admin123@182.92.221.25:20000/repository/bower-lwj-common/"
+	},
+	"nexus" :{
+		"username":"admin",
+		"password":"admin123"
+	}
+}

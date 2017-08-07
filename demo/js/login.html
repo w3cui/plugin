@@ -1,0 +1,113 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title></title>
+<style>
+  body{padding: 50px 100px;}
+</style>
+</head>
+<body>
+<form action="" ui-login >
+  <input type="text" name="lv_username" placeholder="账号/手机号">
+  <input type="password" name="lv_password" placeholder="请输入您的密码">
+  <input type="submit" value="提交" />
+</form>
+
+<form action="" ui-login >
+  <input type="text" name="lv_username" placeholder="账号/手机号">
+  <input type="text" name="imgCaptchaCode" placeholder="请输入图像验证码">
+  <input type="button" value="获取验证码" data-sendout >
+  <input type="password" name="lv_password" placeholder="请输入您的密码">
+  <input type="submit" value="提交" />
+</form>
+
+<hr>
+<h3>引用方式</h3>
+  <pre>
+  	指令名称 : ui-login 
+  	login参数 : data-config="{zoom: true,pagination: '.login-pagination',nextButton: '.login-button-next',prevButton: '.login-button-prev'}"
+  	回调实体 : complete => function($object){};  $object =>  login对象
+
+  	指令源码源码 ：
+
+	/**
+	 * 滑动滚动
+	 * @complete => "初始完毕后回调"
+	 * @config =>  "login选项配置" 
+	 */
+	lwjui.directive('ui-login', function() {
+		return {
+			uses: ["plugin/login/js/login.js"],
+			addcss: ['plugin/login/login.css'],
+			scope: {
+				config: '=config',
+				callback:'~complete'
+			},
+			link: function(el) {
+				var scope = el.scope,
+					service = el.fn.login;
+				// 扩展回调方法
+				var service = service.init(el.element, scope, el.fn.cache.dir + "plugin/login/");
+				if(scope.callback){
+					scope.callback(service)
+				}				
+			}
+		};
+	});
+  </pre>
+
+</body>
+</html>
+<script type="text/javascript"  src="../../bower_components/jquery/jquery.min.js"></script>
+<script src="../../release/lwj.js"></script>
+<script>
+!(function(win, lwjui) {
+  "use strict";
+  lwjui.login = (function($W) {
+    var el , scope , dir ; 
+    $W.init = function(el, config, dir) {
+      el = el;
+      scope = config;
+      scope.config =  scope.config ? scope.config : {};  
+      dir = dir;
+      return this.service(el,scope,dir);
+    };
+    $W.service = function(el,scope,dir) {
+      var $this = this;
+
+      login.init(el,scope.callback||function(){
+        location.replace(scope.returnUrl||"");
+      });      
+    }
+    return $W;
+  })({});
+
+  /**
+   * 滑动滚动
+   * @complete => "初始完毕后回调"
+   * @config =>  "login选项配置" 
+   */
+  lwjui.uses(["layer"]).directive('ui-login', function() {
+    return {
+      uses: ["plugin/login/login.js"],
+      scope: {
+        config: '=config',
+        returnUrl: "returnUrl",
+        callback:'~complete'
+      },
+      link: function(el) {
+        var scope = el.scope,
+          service = el.fn.login;
+        // 扩展回调方法
+        var service = service.init(el.element, scope, el.fn.cache.dir + "plugin/login/");
+        if(scope.callback){
+          scope.callback(service)
+        }       
+      }
+    };
+  });
+
+})(window, lwjui);
+</script>

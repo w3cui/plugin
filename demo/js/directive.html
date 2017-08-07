@@ -1,0 +1,46 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title></title>
+<style>
+  body{padding: 50px 100px;}
+</style>
+</head>
+<body>
+  <button onclick="lwjui.init('directive')">重新绑定事件</button>
+  <hr>
+  <div ui-layer data-list="{b:2,a:1}" data-selecteda ="layer01"></div>
+  <div ui-layer list="{b:2,a:1}" selecteda ="layer02"></div>
+  <div ui-attr list="{b:2,a:1}" selecteda ="attr01"></div>
+  <hr>
+
+  <h3>引用方式</h3>
+
+  <pre>
+  	lwjui.directive('ui-layer', function() {
+			return {
+				template: '&lt;div ui-attr selecteda="---ui-attr内嵌组件---"&gt;我是第一个组件：&lt;/div&gt;',
+				uses: ["box","http://webimg.liweijia.com/liweijia/pc/mainsite/home.js","plugin/validate/jquery.validate.js","plugin/validate/validate_custom.js"],
+				addcss:["lwj","http://webimg.liweijia.com/liweijia/pc/mainsite/home.css"],
+				scope: {
+					string: 'selecteda',
+					object: '=list',
+				},
+				link: function(el) {
+					var scope = el.scope;
+					var tpl = $(el.template).append("（我是属性值：" + scope.string + ")");
+					el.element.append(tpl);
+				}
+			};
+		})
+  </pre>
+
+</body>
+</html>
+<script type="text/javascript"  src="../../bower_components/jquery/jquery.min.js"></script>
+<script src="../../release/lwj.js"></script>
+<script>
+lwjui.uses(['directive']);
+</script>

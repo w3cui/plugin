@@ -1,0 +1,27 @@
+{
+  "name": "lwj",
+  "description": "丽维家插件",
+  "main": "src/lwj.js",
+  "authors": [
+    "tanqilin <tanqilin@liweijia.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "lwj",
+    "ui"
+  ],
+  "homepage": "dome/index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jsplugin": "*",
+    "angular": "1.4.6",
+    "jquery": "1.9.1"
+  }
+}

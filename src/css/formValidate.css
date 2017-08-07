@@ -1,0 +1,9 @@
+.validate_error{
+    color: #c7181e;
+    border-color:#c7181e;
+}
+.validate_error_text{
+    font-size: 14px !important;
+    color: #c7181e !important;
+    margin: 0 !important;
+}

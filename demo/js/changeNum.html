@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../src/css/clickChange.css"/>
+</head>
+<body>
+默认值为中间值:<span class="change_num_box" data-min="5" data-max="200" data-default="10" data-callback="fun" ui-number></span><br/>
+默认值等于最小值:<span class="change_num_box" data-min="50" data-max="200" data-default="50" ui-number></span><br/>
+默认值等于最大值:<span class="change_num_box" data-min="50" data-max="200" data-default="200" ui-number></span><br/>
+默认值大于最大值:<span class="change_num_box" data-min="0" data-max="200" data-default="201" ui-number></span><br/>
+默认值小于最小值:<span class="change_num_box" data-min="50" data-max="200" data-default="40" ui-number></span><br/>
+默认值等于最大值以及最小值:<span class="change_num_box" data-min="0" data-max="0" data-default="0" ui-number></span><br/>
+WARM：没有最大值或最小值或默认值时不加载HTML<span class="change_num_box" data-min="20" data-max="200" ui-number></span><br/>
+
+<script type="text/javascript"  src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="../../src/lwj.js"></script>
+<script src="../../src/js/modules/number.js"></script>
+<script>
+    /**
+     * 需要执行的函数，可不传
+     * @param n 须传入布尔值，不传则不会控制加减事件
+     */
+    function fun(n){
+        var testNum=1;
+        $(document).on("click",".change_add_Click",function(){
+            if(testNum>=5){
+                n(false);
+                return false;
+            }
+            n(true);
+            testNum++;
+        });
+
+    }
+</script>
+</body>
+</html>

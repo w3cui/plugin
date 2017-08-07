@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .form_error{
+            border-color: green;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<form name="form_product" id="form-validation" onsubmit="return useAjax(this);" errorClass="form_error"  errorElement="label" ui-validate action="" class="form-horizontal form-validation" accept-charset="UTF-8" method="post">
+    <input type="text" id="text1" name="test" class="form-control" placeholder="不能为空" required value="" />
+    <input type="text" id="text2" name="email" email="true" class="form-control" placeholder="验证邮箱"  value="" />
+    <input type="text" id="text3" name="url" url="true" class="form-control" placeholder="验证URL" value="" />
+    <input type="text" id="text5" name="dateISO" dateISO="true" class="form-control" placeholder="验证日期 例如：2009-06-23" value="" />
+    <input type="text" id="text6" name="number" number="true" class="form-control" placeholder="必须输入合法的数字(负数，小数)" value="" />
+    <input type="text" id="text7" name="digits" digits="true" class="form-control" placeholder="必须输入整数"  value="" />
+    <input type="text" id="text8" name="creditcard" creditcard="true" class="form-control" placeholder="必须输入合法的信用卡号"  value="" />
+    <input type="text" id="text10" name="maxlength" maxlength="5" class="form-control" placeholder="输入长度最多是5的字符串(汉字算一个字符)" value="" />
+    <input type="text" id="text11" name="minlength" minlength="10" class="form-control" placeholder="输入长度最小是10的字符串(汉字算一个字符)"  value="" />
+    <input type="text" id="text12" name="rangelength" rangelength="5,10" class="form-control" placeholder="输入长度必须介于 5 和 10 之间的字符串汉字算一个字符)"  value="" />
+    <input type="text" id="text13" name="range" range="5,10" class="form-control" placeholder="输入值必须介于 5 和 10 之间" value="" />
+    <input type="text" id="text14" name="max" max="5" class="form-control" placeholder="输入值不能大于5"  value="" />
+    <input type="text" id="text15" name="min" min="10" class="form-control" placeholder="输入值不能小于10" value="" />
+    <input type="text" id="text17" name="isIntZero" isIntZero="true" class="form-control" placeholder="整数必须为0" value="" />
+    <input type="text" id="text18" name="isIntGtZero" isIntGtZero="true" class="form-control" placeholder="整数必须大于0" value="" />
+    <input type="text" id="text19" name="isIntGteZero" isIntGteZero="true" class="form-control" placeholder="整数必须大于或等于0" value="" />
+    <input type="text" id="text20" name="isIntNEqZero" isIntNEqZero="true" class="form-control" placeholder="整数必须不等于0" value="" />
+    <input type="text" id="text21" name="isIntLtZero" isIntLtZero="true" class="form-control" placeholder="整数必须小于0" value="" />
+    <input type="text" id="text22" name="isIntLteZero" isIntLteZero="true" class="form-control" placeholder="整数必须小于或等于0" value="" />
+    <input type="text" id="text23" name="isFloatEqZero" isFloatEqZero="true" class="form-control" placeholder="浮点数必须为0" value="" />
+    <input type="text" id="text24" name="isFloatGtZero" isFloatGtZero="true" class="form-control" placeholder="浮点数必须大于0" value="" />
+    <input type="text" id="text25" name="isFloatGteZero" isFloatGteZero="true" class="form-control" placeholder="浮点数必须大于或等于0" value="" />
+    <input type="text" id="text26" name="isFloatNEqZero" isFloatNEqZero="true" class="form-control" placeholder="浮点数必须不等于0" value="" />
+    <input type="text" id="text27" name="isFloatLtZero" isFloatLtZero="true" class="form-control" placeholder="浮点数必须小于0" value="" />
+    <input type="text" id="text28" name="isFloatLteZero" isFloatLteZero="true" class="form-control" placeholder="浮点数必须小于或等于0" value="" />
+    <input type="text" id="text29" name="isFloat" isFloat="true" class="form-control" placeholder="只能包含数字、小数点等字符" value="" />
+    <input type="text" id="text30" name="isInteger" isInteger="true" class="form-control" placeholder="匹配integer" value="" />
+    <input type="text" id="text31" name="isNumber" isNumber="true" class="form-control" placeholder="匹配数值类型，包括整数和浮点数" value="" />
+    <input type="text" id="text32" name="isDigits" isDigits="true" class="form-control" placeholder="只能输入0-9数字" value="" />
+    <input type="text" id="text33" name="isChinese" isChinese="true" class="form-control" placeholder="只能包含中文字符" value="" />
+    <input type="text" id="text34" name="isEnglish" isEnglish="true" class="form-control" placeholder="只能包含英文字符" value="" />
+    <input type="text" id="text35" name="mobile" mobile="true" class="form-control" placeholder="请正确填写您的手机号码" value="" />
+    <input type="text" id="text36" name="isPhone" isPhone="true" class="form-control" placeholder="请正确填写您的电话号码" value="" />
+    <input type="text" id="text37" name="isTel" isTel="true" class="form-control" placeholder="请正确填写您的联系方式" value="" />
+    <input type="text" id="text38" name="isQq" isQq="true" class="form-control" placeholder="匹配QQ" value="" />
+    <input type="text" id="text39" name="isZipCode" isZipCode="true" class="form-control" placeholder="请正确填写您的邮政编码" value="" />
+    <input type="text" id="text40" name="isPwd" isPwd="true" class="form-control" placeholder="以字母开头，长度在6-12之间，只能包含字符、数字和下划线。" value="" />
+    <input type="text" id="text41" name="isIdCardNo" isIdCardNo="true" class="form-control" placeholder="请输入正确的身份证号码" value="" />
+    <input type="text" id="text42" name="ip" ip="true" class="form-control" placeholder="请填写正确的IP地址" value="" />
+    <input type="text" id="text43" name="stringCheck" stringCheck="true" class="form-control" placeholder="只能包含中文、英文、数字、下划线等字符" value="" />
+    <input type="text" id="text44" name="isChineseChar" isChineseChar="true" class="form-control" placeholder="匹配中文(包括汉字和字符)" value="" />
+    <input type="text" id="text45" name="isRightfulString" isRightfulString="true" class="form-control" placeholder="判断是否为合法字符(a-zA-Z0-9-_)" value="" />
+    <input type="text" id="text46" name="isContainsSpecialChar" isContainsSpecialChar="true" class="form-control" placeholder="含有中英文特殊字符" value="" />
+    <input type="submit" class="btn btn-success"/>
+</form>
+<p>验证结果: <span class="validate_result"></span></p>
+<script type="text/javascript"  src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="../../src/lwj.js"></script>
+<script type="text/javascript">
+    // 初始化表单验证,每个表单元素需加name属性
+    lwjui.uses(["validate"]);
+
+    /**
+     * 使用ajax方式提交表单，需在form表单中设置onsubmit属性
+     * @param $this form表单元素
+     */
+    function useAjax($this){
+        var params={
+            name:"zhangsan",
+            email:"123456@qq.com"
+        };
+
+        //$($this).valid()判断表单验证是否通过
+        var validate_result=$($this).valid();
+
+        $(".validate_result").text(validate_result);
+
+        if(validate_result){
+            $.ajax({
+                url:"",
+                type:"post",
+                data:params,
+                success:function(){
+
+                }
+            })
+        }
+
+    }
+
+</script>
+</body>
+</html>

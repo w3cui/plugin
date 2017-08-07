@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title></title>
+<style>
+  body{padding: 50px 100px;}
+</style>
+</head>
+<body  ng-app = "myApp" >
+<div ng-controller = "appCtrl">
+	<textarea ui-umeditor data-umeditorconfig = "{{umeditorConfig}}" placeholder = "默认提示" ng-model="value" ></textarea>
+  绑定的数据：{{value}} <br>
+  参数：{{umeditorConfig}}
+
+<ul>
+	<li data-ng-repeat="(key, item) in data2.result " >	
+		<ui-list data-result = 'item.productTypeList' ></ui-list>
+	</li>
+</ul>
+
+</div>
+</body>
+</html>
+
+<script type="text/javascript"  src="../../bower_components/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../bower_components/angular/angular.min.js"></script>
+<script src="../../release/lwj.js"></script>
+<script type="text/javascript">
+	var myApp = angular.module("myApp", []);
+  lwjui.ngModule(myApp,['ng/umeditor.js'])
+  .controller('appCtrl', ['$scope', function($scope) {
+		 	$scope.placeholder = "默认信息";
+			$scope.data2 ={"code":0,"messages":"","result":[{"id":"3","createTime":"1492746653000","enabled":0,"updateTime":"1495764415735","version":1,"name":"\u7535\u5de5\u7cfb\u5217","product_types":[{"id":"0ce2d762aa154845802fe0ba7e3ea0c7","createTime":"1483425392000","enabled":0,"updateTime":"1490352717000","version":15,"iconUrl":"icon-qitaxuanze","name":"\u9876\u7ea7\u5206\u7c7b","parentId":null,"updatorId":"0","sortIndex":null,"pivot":{"productTypeManagerConfigId":"3","productTypeId":"0ce2d762aa154845802fe0ba7e3ea0c7"}},{"id":"11e32e98b9a243fd97e0596ba8c51326","createTime":"1495613410000","enabled":0,"updateTime":"1495626271000","version":1,"iconUrl":"icon-tuichu","name":"\u6211\u65b0\u6dfb34442","parentId":null,"updatorId":"0","sortIndex":null,"pivot":{"productTypeManagerConfigId":"3","productTypeId":"11e32e98b9a243fd97e0596ba8c51326"}},{"id":"d50582e990a3423e8f6c741ec87df96e","createTime":"1495610123000","enabled":0,"updateTime":"1495610123000","version":0,"iconUrl":"icon-weixiubanshou","name":"\u4ea7\u54c1\u5206\u7c7b","parentId":null,"updatorId":"0","sortIndex":null,"pivot":{"productTypeManagerConfigId":"3","productTypeId":"d50582e990a3423e8f6c741ec87df96e"}}],"productTypeList":[{"id":"0ce2d762aa154845802fe0ba7e3ea0c7","createTime":"1483425392000","enabled":0,"updateTime":"1490352717000","version":15,"iconUrl":"icon-qitaxuanze","name":"\u9876\u7ea7\u5206\u7c7b","parentId":null,"updatorId":"0","sortIndex":null,"pivot":{"productTypeManagerConfigId":"3","productTypeId":"0ce2d762aa154845802fe0ba7e3ea0c7"},"children":[{"name":"\u5b9a\u5236\u6a71\u67dc","enabled":0,"id":"656a6b93026d42bdbc125dc77ffd2e14","parentId":"0ce2d762aa154845802fe0ba7e3ea0c7","children":[{"name":"\u9ed1\u8272\u6a71\u67dc","enabled":0,"id":"ad1cc562d7094f8c8591e648ee925333","parentId":"656a6b93026d42bdbc125dc77ffd2e14","children":[],"skills":[{"id":"b4ec3dfa65c54e4897919c5ff0967124","createTime":"1487921049000","enabled":1,"updateTime":"1492666046000","version":2,"dicId":139,"name":"\u4fee\u8865\u6f06","remark":"..","type":0,"parentId":null}]}],"skills":[{"id":"d99a5d07f10947ea8229f33cea0eb220","createTime":"1481878440000","enabled":1,"updateTime":"1492666084000","version":3,"dicId":27,"name":"\u53f0\u4e0b\u76c6\u5b89\u88c5","remark":"1221211221","type":0,"parentId":null}]}],"skills":[{"id":"9ccd4913b3164d7f8e524fc418062d8e","createTime":"1487771969000","enabled":1,"updateTime":"1492665996000","version":7,"dicId":138,"name":"\u94c1\u827a\u697c\u68af\u5b89\u88c5","remark":"345454\u591a\u5927\u7684","type":0,"parentId":null}]},{"id":"11e32e98b9a243fd97e0596ba8c51326","createTime":"1495613410000","enabled":0,"updateTime":"1495626271000","version":1,"iconUrl":"icon-tuichu","name":"\u6211\u65b0\u6dfb34442","parentId":null,"updatorId":"0","sortIndex":null,"pivot":{"productTypeManagerConfigId":"3","productTypeId":"11e32e98b9a243fd97e0596ba8c51326"},"children":[],"skills":[]},{"id":"d50582e990a3423e8f6c741ec87df96e","createTime":"1495610123000","enabled":0,"updateTime":"1495610123000","version":0,"iconUrl":"icon-weixiubanshou","name":"\u4ea7\u54c1\u5206\u7c7b","parentId":null,"updatorId":"0","sortIndex":null,"pivot":{"productTypeManagerConfigId":"3","productTypeId":"d50582e990a3423e8f6c741ec87df96e"},"children":[],"skills":[{"id":"b4ec3dfa65c54e4897919c5ff0967124","createTime":"1487921049000","enabled":1,"updateTime":"1492666046000","version":2,"dicId":139,"name":"\u4fee\u8865\u6f06","remark":"..","type":0,"parentId":null}]}]},{"id":"4","createTime":"1492746653000","enabled":0,"updateTime":"1492746653000","version":0,"name":"\u6728\u5de5\u7cfb\u5217","product_types":[{"id":"9243ccce646a4829a03363b2c2bb64c9","createTime":"1488183828000","enabled":0,"updateTime":"1490259782000","version":3,"iconUrl":"icon-yushigui","name":"\u6210\u54c1\u536b\u6d74","parentId":null,"updatorId":"0","sortIndex":null,"pivot":{"productTypeManagerConfigId":"4","productTypeId":"9243ccce646a4829a03363b2c2bb64c9"}}],"productTypeList":[{"id":"9243ccce646a4829a03363b2c2bb64c9","createTime":"1488183828000","enabled":0,"updateTime":"1490259782000","version":3,"iconUrl":"icon-yushigui","name":"\u6210\u54c1\u536b\u6d74","parentId":null,"updatorId":"0","sortIndex":null,"pivot":{"productTypeManagerConfigId":"4","productTypeId":"9243ccce646a4829a03363b2c2bb64c9"},"children":[],"skills":[]}]}]};
+
+		$scope.umeditorConfig = {
+			UMEDITOR_HOME_URL: null,
+		};
+		$scope.value = "我是一只小蜜蜂";
+	}]);
+</script>

@@ -1,0 +1,11 @@
+{
+  "name": "lwj",
+  "moduleType":"directive,box,validate,jquery",
+  "moduleUrl" : {
+            "layer": "modules/layer",
+            "jquery": "modules/jquery",
+            "directive": "modules/directive",
+            "box": "modules/box",
+            "validate": "modules/validate"
+          }
+}
